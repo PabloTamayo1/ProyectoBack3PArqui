@@ -1,0 +1,29 @@
+type Query {
+    obtenerUsuarioPorId(id: ID!): Usuario
+    listarUsuarios: [Usuario]
+    listarSolicitudes: [SolicitudCredito]
+    obtenerSolicitudPorId(id: ID!): SolicitudCredito
+}
+
+type Mutation {
+    crearUsuario(nombre: String!, correoElectronico: String!, numeroIdentificacion: String!, ingresosMensuales: Float!, direccion: String!): Usuario
+    crearSolicitud(usuarioId: ID!, montoSolicitado: Float!, fechaSolicitud: String!, estado: String!, puntajeCrediticio: Float!): SolicitudCredito
+}
+
+type Usuario {
+    idUsuario: ID
+    nombre: String
+    correoElectronico: String
+    numeroIdentificacion: String
+    ingresosMensuales: Float
+    direccion: String
+}
+
+type SolicitudCredito {
+    idSolicitud: ID
+    usuario: Usuario
+    montoSolicitado: Float
+    fechaSolicitud: String
+    estado: String
+    puntajeCrediticio: Float
+}
